@@ -1,8 +1,14 @@
+import mela.pela.FacturaImpl
 import mela.pela.SaleImpl
 
 @ImplementInterface
 interface Sale {
     fun vender()
+}
+
+@FacturaColombianas
+open class Factura {
+    val uid: String = "123"
 }
 
 //@ImplementInterface
@@ -11,13 +17,15 @@ interface Sale {
 //}
 
 fun main() {
-    val venta = SaleImpl()
+    val venta = PaySaleImpl()
     venta.vender()
+//    var factura = FacturaImpl()
+//    println(factura.uid)
 //    VolarImpl().mover()
 }
 
 class PaySaleImpl : SaleImpl() {
-    fun pagar() {
+    override fun vender() {
         println("Pagando")
     }
 }
