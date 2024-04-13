@@ -1,1 +1,1 @@
-I:\JAVA_DEVELOPER\Kiron\Cliente\build\classes\kotlin\main\MainKt.class;I:\JAVA_DEVELOPER\Kiron\Cliente\build\classes\kotlin\main\Venta.class;I:\JAVA_DEVELOPER\Kiron\Cliente\build\classes\kotlin\main\mela\pela\VentaImpl.class
+I:\JAVA_DEVELOPER\Kiron\Cliente\build\classes\kotlin\main\MainKt.class;I:\JAVA_DEVELOPER\Kiron\Cliente\build\classes\kotlin\main\PaySaleImpl.class;I:\JAVA_DEVELOPER\Kiron\Cliente\build\classes\kotlin\main\Sale.class;I:\JAVA_DEVELOPER\Kiron\Cliente\build\classes\kotlin\main\mela\pela\SaleImpl.class

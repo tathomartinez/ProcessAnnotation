@@ -45,13 +45,12 @@ class InterfaceProcessor(
                 // definir el nombre de la clase
                 addType(
                     TypeSpec.classBuilder("${classSimpleName}Impl")
-//                            TypeSpec.classBuilder("${classDeclaration::class.java.simpleName}Impl")
+                        .addModifiers(KModifier.OPEN)
                         .addSuperinterface(
                             ClassName(classDeclaration.packageName.asString(), "$classDeclaration")
                         )
                         .addFunction(
                             FunSpec.builder("total")
-//                                .addStatement("val venta = %T()", typeClassName::class.java)
                                 .addStatement("this.vender()")
                                 .build()
                         )
@@ -70,6 +69,7 @@ class InterfaceProcessor(
                         )
                         .build()
                 )
+                addImport(StringBuilder::class.java.packageName, StringBuilder::class.java.simpleName)
             }.build()
 
             fileSpec.writeTo(codeGenerator = codeGenerator, aggregating = false)
@@ -78,8 +78,6 @@ class InterfaceProcessor(
 
         override fun visitPropertyDeclaration(property: KSPropertyDeclaration, data: Unit) {
             logger.error("Property ${property.simpleName} of type ${property.type.resolve().declaration.qualifiedName}")
-
-
         }
     }
 

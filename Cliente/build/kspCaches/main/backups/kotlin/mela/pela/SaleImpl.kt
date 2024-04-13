@@ -1,10 +1,11 @@
 package mela.pela
 
 import Sale
+import java.lang.StringBuilder
 import kotlin.String
 import kotlin.Unit
 
-public class SaleImpl : Sale {
+public open class SaleImpl : Sale {
   public fun total(): Unit {
     this.vender()
   }
