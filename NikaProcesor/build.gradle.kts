@@ -1,6 +1,6 @@
 plugins {
     kotlin("jvm")
-    id("com.google.devtools.ksp") version "1.6.10-1.0.4"
+    id("com.google.devtools.ksp") version "1.8.22-1.0.11"
 }
 
 group = "me.miste"
@@ -11,7 +11,7 @@ dependencies {
 
     implementation(project(":NikaAnnotation"))
 
-    implementation("com.google.devtools.ksp:symbol-processing-api:1.6.10-1.0.4")
+    implementation("com.google.devtools.ksp:symbol-processing-api:1.8.22-1.0.11")
     implementation("com.squareup:kotlinpoet:1.11.0")
     implementation("com.squareup:kotlinpoet-ksp:1.11.0")
     implementation("com.google.auto.service:auto-service:1.0-rc7")

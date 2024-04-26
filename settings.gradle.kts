@@ -4,8 +4,8 @@ pluginManagement {
         mavenCentral()
     }
     plugins {
-        id("com.google.devtools.ksp") version "1.6.10-1.0.4"
-        kotlin("jvm") version "1.6.10"
+        id("com.google.devtools.ksp") version "1.8.22-1.0.11"
+        kotlin("jvm") version "1.8.22"
     }
 }
 dependencyResolutionManagement {

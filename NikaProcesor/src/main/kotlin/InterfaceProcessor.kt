@@ -5,7 +5,8 @@ import com.google.devtools.ksp.validate
 import com.squareup.kotlinpoet.*
 import com.squareup.kotlinpoet.ksp.KotlinPoetKspPreview
 import com.squareup.kotlinpoet.ksp.writeTo
-
+import visitor.VisitorJsonScheme
+import visitor.VisitorParams
 
 class InterfaceProcessor(
     private val options: Map<String, String>,
@@ -22,8 +23,19 @@ class InterfaceProcessor(
         symbolsFactura.filter { it is KSClassDeclaration && it.validate() }.forEach {
             it.accept(VisitorFactura(), Unit)
         }
+        val symbolsParameter = resolver.getSymbolsWithAnnotation(ParamPax::class.qualifiedName!!)
+        symbolsParameter.filter { it is KSClassDeclaration && it.validate() }.forEach {
+            it.accept(VisitorParams(codeGenerator = codeGenerator), Unit)
+        }
+
+        val nikaJsonClass = resolver.getSymbolsWithAnnotation(NikaJsonClass::class.qualifiedName!!)
+        nikaJsonClass.filter { it is KSClassDeclaration && it.validate() && it.modifiers.contains(Modifier.DATA) }
+            .forEach {
+                it.accept(VisitorJsonScheme(codeGenerator = codeGenerator), Unit)
+            }
         return unableToProcess.toList()
     }
+
 
     private inner class VisitorFactura : KSVisitorVoid() {
         @OptIn(KotlinPoetKspPreview::class)
@@ -82,7 +94,7 @@ class InterfaceProcessor(
                 .build()
 
             val parameterspec = ParameterSpec
-                .builder("uid", String::class,)
+                .builder("uid", String::class)
 //                ParameterSpec.builder("uid", String::class)
 //                .addModifiers(KModifier.OVERRIDE)
                 .build()

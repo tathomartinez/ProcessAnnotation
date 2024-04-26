@@ -1,6 +1,6 @@
 plugins {
     kotlin("jvm")
-    id("com.google.devtools.ksp") version "1.6.10-1.0.4"
+    id("com.google.devtools.ksp") version "1.8.22-1.0.11"
 }
 
 group = "me.miste"
